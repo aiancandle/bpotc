@@ -1,0 +1,152 @@
+
+/* 公共样式 */
+.clear {clear:both;}
+.f_l{float:left;}
+.f_r{float:right;}
+
+/* 去除a标签的虚线框  */
+a{outline:none;}
+a:active {star:expression(this.onFocus=this.blur());text-decoration:none;}
+a:focus {outline:0;}
+
+a:link  {text-decoration:none;}
+a:hover {color:red;text-decoration:none;}
+a:visited {text-decoration:none;}
+
+.btn{text-shadow:none;white-space:nowrap;}
+
+/* 顶部 */
+.header {overflow:hidden;zoom:1;height:75px;background:#3A6EA5;min-width: 1200px;}
+.header_footer{width:100%;height:15px;line-height:15px;background:#E2E9EA;overflow:hidden;zoom:1;display:inline-block;zoom:1;*display:inline;}
+.logo {float:left;/*height:50px;*/width:210px;overflow:hidden;zoom:1;/*margin:5px 0 0 8px;_margin-left:4px;*/}
+.logo h3{color:#fff; text-align: center;font-family: "Helvetica Neue","Hiragino Sans GB","Microsoft YaHei","\9ED1\4F53",Arial,sans-serif;}
+.login-info {/*float:right; margin: 5px 15px 0 0;*/ height:20px;line-height:20px;position:absolute;top:3px;right:15px;}
+.login-info  a, .login-info  span {color:#FFF; margin-left: 10px;}
+.login-info  a:hover{color:red;}
+
+.topmenu {overflow:hidden;zoom:1;/*float: left;*/font-size: 14px;font-weight: bold;color: #555555;/*margin-top:25px;margin-left:10px;*/}
+.topmenu ul {margin: 0px;padding: 0px;}
+.topmenu li {float: left;margin-right:2px;height: 34px;line-height:34px;}
+.topmenu span {display: block;float: left;padding-left:15px;background: url(../Images/admin_nav_bg.png);height: 34px;line-height:34px;color: #fff;}
+.topmenu span a {width:60px; text-align:center;display: block;float: left;color: #fff;background: url(../Images/admin_nav_bg.png) no-repeat right 0;height: 34px;padding-right:15px;height: 34px;line-height:34px;}
+.topmenu .current {display: block;float:left;background:url(../Images/admin_nav_bg.png) 0 -43px; border-bottom: none;}
+.topmenu .current a {color: #367ABB;background: url(../Images/admin_nav_bg.png) no-repeat right -43px; outline: none;}
+
+
+/* 左侧菜单 */
+#leftMenuBox {float:left;overflow:hidden; zoom:1;display:inline-block;zoom:1;*display:inline;}
+#leftMenu {float:left;background:#F7FBFC;width:200px;}
+#leftMenu {margin:0px;}
+#leftMenu dl dt {float:left;
+
+/*
+background:url(../Images/admin_left_menu.gif) no-repeat 12px 6px;width:155px;
+padding-left:35px;
+*/
+width:190px;
+
+height:29px; line-height:29px;border-bottom:1px solid #d5dfe8;text-align:left; font-size:14px;font-weight:bold;}
+#leftMenu dl dd {margin:0;float:left;width:190px;border-bottom:  #EAEFF4 1px solid;height:39px;line-height:39px;}
+#leftMenu dl dd a {margin-top:1px;CURSOR:pointer;padding-left:30px;float:left;width:160px;height:37px;line-height:37px;background:url(../Images/admin_dot.gif) no-repeat 15px 15px;}
+#leftMenu dl dd a:hover ,#leftMenu dl dd.on a {color:red;background:#E2E9EA url(../Images/admin_dot.gif) no-repeat 15px 15px;}
+
+
+/* 主体部分 */
+#Main_content  {margin:0;padding:0;background:#E2E9EA;min-width: 1200px;/* min-height: 700px; */}
+#MainBox{ float:right;width:100%; margin-left:-224px;margin-right:12px;_margin-right:6px;}
+#MainBox .main_box{ margin-left:224px; overflow:hidden; zoom:1; }
+#MainBox #Main{ width:100%;border:none;}
+#Main_drop {float:left;margin-top:220px;width:12px;overflow:hidden; zoom:1;display:inline-block;zoom:1;*display:inline;}
+#Main_drop img {margin-left:1px; width: 11px; height: 60px;}
+
+
+/* 登陆页 */
+.login-bg{
+	background-color: #FFF;
+    border: 1px solid #E5E5E5;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    margin: 100px auto 20px;
+    /*max-width: 450px;*/
+	width: 600px;
+	padding: 30px 0;
+}
+.login-form{
+    margin: 0 auto;
+	width: 300px;
+	text-align:center;
+}
+.login-form .input-prepend .add-on{padding:10px;}
+.login-form .input-prepend input{height: 32px; line-height: 32px;}
+.login-form h2{
+	margin-top: 0;
+	margin-bottom: 20px;
+	font:20px/2 'Lantinghei SC', 'Microsoft YaHei', 微软雅黑, Tahoma, Arial, 宋体, sans-serif;
+	color:#596780;
+}
+.login-submit-box{/*padding-left:50px;*/}
+
+
+
+/* 主体iframe */
+.height20{height: 20px;}
+.color-red{color:red;}
+.color-green{color:green;}
+
+.controls label.error{display:inline; color:#f00; margin-left: 10px;}
+.tooltip-container .tooltip-inner{font-size: 14px;}
+
+.help-inline{color: #888;}
+
+
+.main-box{padding:10px 15px;}
+.mainnav_title{padding: 5px 0 10px;}
+
+/*
+.main-box .table tbody tr td, .main-box .table thead tr th{
+	text-align:center;
+}
+*/
+
+.textarea-remark{width: 250px; height: 100px;}
+.textarea-remark2{width: 400px; height: 80px;}
+
+/* 分页 */
+.pagination ul li a:hover,
+.pagination .disabled .current{background: #f60; color:#fff;}
+
+.control-group{
+	clear:both;
+}
+.span2{
+	min-height:32px;
+}
+.table-bordered thead tr{background:#EEEEEE}
+
+[class^="glyphicon-"], [class*=" glyphicon-"] {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-top: 1px;
+    *margin-right: .3em;
+    line-height: 14px;
+    vertical-align: text-top;
+    background-image: url(../Images/glyphicons-halflings.png);
+    background-position: 14px 14px;
+    background-repeat: no-repeat;
+}
+
+.dropdown-menu>li>a:hover>[class^="glyphicon-"], .dropdown-menu>li>a:focus>[class^="glyphicon-"], .dropdown-menu>li>a:hover>[class*=" glyphicon-"], .dropdown-menu>li>a:focus>[class*=" glyphicon-"], .dropdown-menu>.active>a>[class^="glyphicon-"], .dropdown-menu>.active>a>[class*=" glyphicon-"] {
+    background-image: url(../Images/glyphicons-halflings-white.png);
+}
+
+.glyphicon-ok {
+    background-position: -288px 0;
+}
+
+.bs-searchbox .form-control{
+	box-sizing: border-box;
+	height: 30px;
+}
+
+

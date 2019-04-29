@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+  <div id="app">
+    <p>{{ foo }}</p>
+    <!-- 这里的 `foo` 不会更新！ -->
+    <button @click="foo = 'baz'">Change it</button>
+  </div>
+  <script type="text/javascript">
+    var obj = {
+      foo: 'bar'
+    }
+
+    //Object.freeze(obj)
+
+    new Vue({
+      el: '#app',
+      data: obj
+    })
+
+    var data = {
+      a: 1
+    }
+
+    var vm = new Vue({
+      el: '#example',
+      data: data
+    })
+
+    vm.$data === data // => true
+    vm.$el === document.getElementById('example') // => true
+
+    // $watch 是一个实例方法
+    vm.$watch('a', function(newValue, oldValue) {
+      console.log(123);
+    })
+
+    data.a = 123;
+
+    new Vue({
+      data: {
+        a: 1
+      },
+      created: function() {
+        // `this` 指向 vm 实例
+        console.log('a is: ' + this.a)
+      }
+    })
+    // => "a is: 1"
+  </script>
+</body>
+
+</html>

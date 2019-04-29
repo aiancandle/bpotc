@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!-- saved from url=(0329)http://we.rocketotc.com/order/add?orderNo=190411122751TW001433000000000001&customerId=123&orderCurrency=CNY&orderAmount=0.1&receiveUrl=http%3A%2F%2Fc.pay2.info%2Fbp_lkp%2Findex.php%2Fback&pickupUrl=http%3A%2F%2Fmy.svofx.com%2Fapp%2Ffundmgmt%2Ffundflow&signType=MD5&sign=1af3a394c5a8f726fd79bd308fac6257&biz_sn=biz15a7f5e2ee7cbbe7 -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+  <title>yft</title>
+  <link rel="stylesheet" href="./yft_files/reset.css">
+  <link rel="icon" href="http://we.rocketotc.com/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./yft_files/beforePay.css">
+  <style>
+    .form-control {
+      display: inline-block;
+      /*width: 100%;
+	height: 44px;*/
+      padding: 6px 12px;
+      line-height: 1.42857143;
+      /*font-size: 16px;*/
+      color: #555;
+      border: 1px solid #e0e2e5;
+      border-radius: 2px;
+      box-shadow: none;
+      background-color: #fff;
+      background-image: none;
+      transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    }
+
+    .form-control:focus {
+      border-color: #327bf4;
+      outline: 0;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    }
+
+    .form-control::-moz-placeholder {
+      color: #999;
+      opacity: 1;
+    }
+
+    .form-control:-ms-input-placeholder {
+      color: #999;
+    }
+
+    .form-control::-webkit-input-placeholder {
+      color: #999;
+    }
+
+    .form-control::-ms-expand {
+      background-color: transparent;
+      border: 0;
+    }
+
+    .form-control[disabled],
+    .form-control[readonly],
+    fieldset[disabled] .form-control {
+      background-color: #eee;
+      opacity: 1;
+    }
+
+    .form-control[disabled],
+    fieldset[disabled] .form-control {
+      cursor: not-allowed;
+    }
+
+    textarea.form-control {
+      height: auto;
+    }
+
+    input[type="search"] {
+      -webkit-appearance: none;
+    }
+  </style>
+</head>
+
+<body style="width: 100%;height: 10%;background: #eef2f8;">
+  <form id="order-form" action="/" method="post">
+    <input type="hidden" value="__RECEIVE__" name="method">
+    <input type="hidden" name="id" value="{{id}}">
+    <div class="beforePay">
+      <div class="header">
+        <div class="header_content">
+          <!-- <img id="logoimg1" style="height:70px" src="./yft_files/logo.png" alt=""> -->
+          <img id="logoimg2" src="./yft_files/logo_pic.png" alt="">
+        </div>
+      </div>
+      <div class="menu">
+        <span class="list href1 active">买币充值</span>
+        <!-- <span onclick="window.location.href = &#39;payIng.html&#39; + window.location.search;" class="list href1 active">买币充值</span>
+            <span onclick="window.location.href = &#39;ETH.html&#39; + window.location.search;" class="list href2 ">ETH钱包充值</span>
+            <span onclick="window.location.href = &#39;BTC.html&#39; + window.location.search;" class="list href3 ">BTC钱包充值</span> -->
+      </div>
+      <div class="content">
+        <div class="golden_info">
+          <h3 class="title">充值信息</h3>
+          <div class="golden_main">
+            <ul class="item_box">
+              <li class="item">
+                <p><span>商户名称 :</span><span id="name" style="font-weight: 600;margin-left:20px">{{COMPANY_NAME}}</span></p>
+                <input type="hidden" name="seller_user_id" value="19">
+              </li>
+              <!-- <li class="item">
+                            <p><span>入金金额 :</span><span id="money" style="font-weight: 600;margin-left:20px">$&nbsp;</span></p>
+                        </li> -->
+              <li class="item">
+                <p><span>充值金额 :</span><span id="huilv" style="font-weight: 600;margin-left:20px">{{equal_dollar}}&nbsp;USDT</span></p>
+              </li>
+            </ul>
+            <div class="pay_time_wrap">
+              <p class="pay_title">支付金额</p>
+              <p class="s_pay_title">支付金额 :</p>
+              <p class="pay_time">{{orderAmount}}&nbsp;RMB</p>
+            </div>
+          </div>
+        </div>
+        <div class="golden_info">
+          <h3 class="title">付款人信息</h3>
+          <div class="golden_main">
+            <ul class="item_box">
+              <li class="item">
+                <p style="height:34px;line-height:34px"><span>姓名 :</span>
+                  <input type="text" id="realname" name="realname" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="请输入付款人姓名(必填)"></p>
+              </li>
+              <!--<li class="item">
+                            <p style="height:34px;line-height:34px"><span>手机号 :</span>
+							<input type="text" id="mobile" name="mobile" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="请输入付款人手机号"></p>
+                        </li> -->
+            </ul>
+          </div>
+        </div>
+
+        <!-- <div class="golden_info">
+                <h3 class="title">付款方式</h3>
+                <div class="golden_main">
+                    <ul class="item_box">
+						<li class="item">
+                            <label class="radio inline">
+								<input type="radio" name="pay_type" value="bank" checked="checked">银行卡
+							</label>
+                        </li>												                    </ul>
+                </div>
+            </div> -->
+
+        <div class="datum">
+          <h3 class="title">购买条款</h3>
+          <div class="bank_info_wrap">
+            <p>1、购买币的价格是市场的实时报价，您所支付给卖币方的金额依赖于市场实时行情。</p>
+            <p>2、本人确认交易资金来源于合法途径，如是非法获得愿意承担一切责任。</p>
+            <p>3、系统将自动为您匹配承兑商，并显示承兑商资料信息。</p>
+            <p>4、虚拟货币转入钱包过程时间在1-5分钟之间，依赖于公链网络算力和区块链复杂度，请耐心等待。</p>
+            <div class="footer">
+              <p class="footer_top">
+                <input type="checkbox" id="checkValid" class="inp">&nbsp;我已阅读并同意以上条款</p>
+              <p class="footer_btn">
+                <!-- <button class="footer_btn" id="footBtn">前往购买</button> -->
+                <button class="footer_btn" id="footBtn">去付款</button>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="beforePay_footer">
+          <div class="bfy_footer_item">
+            <img src="./yft_files/guarantee.png" alt="">
+            <div class="bfy_footer_item_text">
+              <h3>联合担保</h3>
+              <p>本地交易由平台和承兑商提供联合担保</p>
+            </div>
+          </div>
+          <div class="bfy_footer_item">
+            <img src="./yft_files/cashDeposit.png" alt="">
+            <div class="bfy_footer_item_text">
+              <h3>保证金</h3>
+              <p>承兑商已向平台缴纳足够保证金</p>
+            </div>
+          </div>
+          <div class="bfy_footer_item">
+            <img src="./yft_files/lock.png" alt="">
+            <div class="bfy_footer_item_text">
+              <h3>托管锁定</h3>
+              <p>承兑商出售USDT已托管锁定在平台</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <script src="./yft_files/jquery.min.js">
+  </script>
+  <script>
+    try {
+      if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        $(".header_content").css("marginLeft", '0');
+        $('#logoimg2').hide();
+        $('#logoimg1').css("width", '70px');
+        $('#logoimg1').css("marginLeft", 'auto');
+        $('#logoimg1').css("marginRight", 'auto');
+        $('.menu').css('marginTop', '20px');
+      }
+    } catch (e) {}
+    $(document).ready(function() {
+      function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = decodeURIComponent(window.location.search).substr(1).match(reg); //匹配目标参数
+        if (r != null) return unescape(r[2]);
+        return null; //返回参数值
+      }
+      var orderNo = getUrlParam('orderNo');
+      var orderAmount = getUrlParam('orderAmount');
+      var currencyAddress = getUrlParam('currencyAddress');
+      var merchantName = decodeURIComponent(getUrlParam('merchantName'));
+      var usdAmount = getUrlParam('usdAmount');
+      var usdtAmount = getUrlParam('usdtAmount');
+      var cnyAmount = getUrlParam('cnyAmount');
+      var exchangeRate = getUrlParam('exchangeRate');
+      var currency = getUrlParam('currency');
+      /*$("#currencyAddress").html(currencyAddress);
+      $("#merchantName").html(merchantName);
+
+      $("#name").html(merchantName);
+      $("#money").html("$&nbsp;" + orderAmount);
+      $("#huilv").html(usdtAmount + "&nbsp;"+currency);
+      $(".pay_time").html(cnyAmount + "&nbsp;RMB");
+      $(".pay_currency").html(currency);*/
+
+      $("#footBtn").click(function() {
+        /*if (orderNo == null || orderNo == '') {
+            alert('订单号不能为空')
+            return
+        }
+        if (orderAmount == null || orderAmount == '') {
+            alert('入金金额不能为空')
+            return
+        }*/
+        var realname = $("#realname").val();
+        if (realname == '') {
+          alert('请输入您在付款时的账号姓名，便于卖家确认收款')
+          return false
+        }
+        if (!/^[\u4E00-\u9FA5]{2,6}/.test(realname) || realname.length > 20 || /[a-z0-9]/i.test(realname)) {
+          //有少数名族的名字 中间有. 这里只判断前面是中文即可
+          alert('姓名请填写中文，便于我们核对')
+          return false
+        }
+
+        /*if ($("#mobile").val() == '') {
+            alert('请输入付款人手机号')
+            return false
+        }*/
+        if ($("input[type='checkbox']").is(':checked')) {
+          //window.location.href = 'pay' + window.location.search;
+          //window.location.href = 'pay?order_sn=' + ;
+          //window.location.href = 'pay?order_sn=';
+        } else {
+          alert("请同意条款！")
+          return false
+        }
+        $("#order-form").submit();
+      });
+
+
+    })
+  </script>
+
+</body>
+
+</html>

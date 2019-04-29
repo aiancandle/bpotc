@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://we.rocketotc.com/Public/login -->
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>{{COMPANY_ABBREVIATION}}</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./hjotc_files/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="./hjotc_files/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="/layui/dist/css/layui.css" media="all">
+
+  <!-- <script src="./hjotc_files/jquery-1.8.3.min.js.下载" type="text/javascript"></script>
+  <script src="./hjotc_files/jquery.validate.min.js.下载" type="text/javascript"></script>
+  <script src="./hjotc_files/validate.message.cn.js.下载" type="text/javascript"></script>
+
+  <script src="./hjotc_files/bootstrap.min.js.下载" type="text/javascript"></script>
+  <script src="./hjotc_files/common.js.下载" type="text/javascript"></script> -->
+  <!-- <script type="text/javascript">
+    $(function() {
+      // 工具提示
+      /*
+       Html使用代码：
+       <span class="tooltip-container">
+       <a href="" title="添加子菜单"><i class="icon-plus"></i></a> &nbsp;
+       <a href="#" title="编辑"><i class="icon-edit"></i></a> &nbsp;
+       <a href="#" title="删除"><i class="icon-trash"></i></a>
+       </span>
+       */
+      $('.tooltip-container a').tooltip();
+    });
+  </script> -->
+</head>
+
+<body>
+  <div class="main-box">
+
+    <style type="text/css">
+      body {
+        background: #3C3B4D;
+      }
+    </style>
+    <div class="container">
+      <div class="login-bg">
+        <div class="login-form">
+          <!-- <a target="_blank" href="/"><img src="./hjotc_files/logo.png"></a> -->
+          <br><br>
+          <h2>—— 数字货币兑换平台 ——</h2>
+          <br>
+          <form action="/" method="post">
+            <input type="hidden" value="__ATTRIBUTE__" name="method">
+            <div class="control-group">
+              <div class="controls">
+                <div class="input-prepend">
+                  <span class="add-on"><i class="icon-user"></i></span>
+                  <input type="text" name="LOGIN_ACCOUNT" placeholder="用户帐号" value="" autofocus="">
+                </div>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="controls">
+                <div class="input-prepend">
+                  <span class="add-on"><i class="icon-lock"></i></span>
+                  <input type="password" name="LOGIN_PASSWORD" placeholder="密码" value="">
+                </div>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="controls">
+                <div class="input-prepend">
+                  <span class="add-on"><i class="icon-lock"></i></span>
+                  <input type="password" name="DYNAMIC_PASSWORD" placeholder="动态口令" value="">
+                </div>
+              </div>
+            </div>
+            <!-- <div class="control-group">
+				<div class="controls">
+					<div class="input-prepend">
+						<span class="add-on" ><img src="/Admin/Public/verify" onclick="fleshVerify();" title="点击刷新" style="cursor:pointer;" id="verifyImg"></span>
+						<input name="verify" type="text" placeholder="验证码" style="width: 142px;">
+					</div>
+				</div>
+			</div> -->
+            <div class="login-submit-box">
+              <input type="submit" class="btn btn-large btn-primary" value="登录">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script type="text/javascript">
+      // 刷新验证码
+      function fleshVerify() {
+        var src = '/Home/Public/verify/' + new Date().getTime();
+        $('#verifyImg').attr('src', src);
+      }
+    </script> -->
+
+  </div>
+  <script src="/layui/dist/layui.js"></script>
+  <script>
+    layui.use('layer', function() {
+      if ({
+          {
+            LOGIN_FAIL
+          }
+        }) {
+        layer.msg('登陆失败');
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)http://we.rocketotc.com/order/pay?order_sn={{orderNo}} -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+  <title>{{COMPANY_ABBREVIATION}}</title>
+  <link rel="stylesheet" href="./yft2_files/reset.css">
+  <link rel="icon" href="http://we.rocketotc.com/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./yft2_files/payIng.css">
+</head>
+
+<body style="width: 100%;height: 10%;background: #eef2f8;">
+  <div class="pay_ing">
+    <div class="header">
+      <div class="header_content">
+        <!-- <img id="logoimg1" style="height:70px" src="./yft2_files/logo.png" alt=""> -->
+        <img id="logoimg2" src="./yft2_files/logo_pic.png" alt="">
+      </div>
+    </div>
+    <div class="menu">
+      <span class="list href1 active">买币充值</span>
+      <!-- <span onclick="window.location.href = &#39;payIng.html&#39; + window.location.search;" class="list href1 active">买币充值</span>
+            <span onclick="window.location.href = &#39;ETH.html&#39; + window.location.search;" class="list href2 ">ETH钱包充值</span>
+            <span onclick="window.location.href = &#39;BTC.html&#39; + window.location.search;" class="list href3 ">BTC钱包充值</span> -->
+    </div>
+    <div class="content">
+      <div class="golden_info">
+        <h3 class="title">订单信息</h3>
+        <div class="golden_main">
+          <ul class="item_box">
+            <li class="item">
+              <p><span id="item_first">订单号 :</span><span id="orderNum" style="font-weight: 600;margin-left:20px">{{orderNo}}</span></p>
+            </li>
+            <li class="item">
+              <p><span id="item_first">交易数量 :</span><span id="investCurrencyCount" style="font-weight: 600;margin-left:20px">{{equal_dollar}} USDT</span></p>
+            </li>
+            <li class="item">
+              <p><span id="item_first" style="font-weight: 600">支付倒计时:</span><span id="maybe" style="font-weight: 600;color:#dc1f0b;padding-left:20px;">
+                  <span id="hour_show"><s id="h"></s>0时</span><span id="minute_show"><s></s>30分</span><span id="second_show"><s></s>60秒</span>
+                </span></p>
+            </li>
+          </ul>
+          <div class="pay_time_wrap">
+            <p class="pay_title" id="item_first">交易金额</p>
+            <p class="s_pay_title" id="item_first">交易金额 :</p>
+            <p class="pay_time"><span id="investAmount" style="font-weight: 600;margin-left:20px">{{orderAmount}}</span>&nbsp;RMB</p>
+          </div>
+        </div>
+
+        <div class="reminder">
+          <p class="reminder_text">请在半小时内进行支付，
+            <!-- 并注意输入<strong>备注参考号</strong>， -->若交易超时，订单将自动取消。<br>付款后请点击<strong>【我已付款】，<span style="color:#dc1f0b;font-weight: 600;">否则，将无法为您充值，资金将原路返还。</span></strong></p>
+          <!-- <button class="btn" id="reminderBtn">我已付款</button> -->
+          <!-- <a href="/confirm?id={{id}}"> -->
+          <form action="/" method="post">
+            <input type="hidden" value="__CONFIRM__" name="method">
+            <input type="hidden" name="id" value="{{id}}">
+            <button type="submit" class="btn">我已付款</button>
+            <form />
+            <!-- </a> -->
+        </div>
+      </div>
+      <div class="datum">
+        <h3 class="title">承兑商资料</h3>
+        <div class="bank_info_wrap">
+          <ul class="bank_info">
+            <div class="tab_title">
+              <li class="info_item isShow active">
+                <img src="./yft2_files/card_icon.png" alt="">
+                <span>银行卡</span>
+              </li>
+            </div>
+
+            <div class="tab_content payment_wrap">
+              <li class="info_item" style="display: block;">
+                <p><span>账户名:</span><span id="realName" style="font-weight: 600;margin-left:20px">{{CARD_OWNER}}</span><a href="javascript:;" id="nameCopy" style="padding-left:20px;color:#317bf4;">复制</a>
+                </p>
+              </li>
+              <li class="info_item" style="display: block;">
+                <p><span>开户机构:</span><span id="depositBank" style="font-weight: 600;margin-left:20px">{{BANK_NAME}}</span></p>
+              </li>
+              <li class="info_item" style="display: block;">
+                <p><span>收款账号:</span><span id="cardNumber" style="font-weight: 600;margin-left:20px">{{CARD_NUMBER}}</span><a href="javascript:;" id="cardCopy" style="padding-left:20px;color:#317bf4;">复制</a></p>
+              </li>
+              <!-- <li class="info_item" style="display: block;">
+									<p>请在付款信息中备注付款参考号<a class="number" id="serial" style="font-weight: 600">674758</a></p>
+								</li> -->
+              <p class="bank_statue" style="display: none;">匹配中......</p>
+            </div>
+          </ul>
+          <div class="bank_info_right">
+            <p class="rigth_item status">承兑商名称:</p>
+            <p class="rigth_item" id="nickName" style="display: flex;align-items: center;">{{CARD_OWNER}}<img src="./yft2_files/credit.png" style="margin-left:20px;" alt=""></p>
+            <p class="rigth_item status">3日交易次数:</p>
+            <p class="rigth_item" id="tradeCount">32笔</p>
+            <p class="rigth_item status">30日成交量:</p>
+            <p class="rigth_item" id="tradeCountMonth">67417.75 USDT</p>
+          </div>
+        </div>
+
+        <div class="section-order-content">
+          <link rel="stylesheet" href="./yft2_files/order.css">
+          <style>
+            .order-safe-bank-content a {
+              float: left;
+              margin-left: 5.5%;
+            }
+          </style>
+          <div class="order-safe-tip">
+            <div class="order-safe-tip-head">选择付款银行</div>
+            <div class="order-safe-tip-content order-safe-bank-content" style="display: block; padding: 0">
+              <a href="https://mybank.icbc.com.cn/icbc/newperbank/perbank3/frame/frame_index.jsp" target="_blank">
+                <dl style="margin: 0;">
+                  <dt style="margin:auto"><i class="icon icon-safe-safe" style="background-image: url(http://we.bpglobals.com/images/banks/001.png);background-size: 100%;width: 150px;height: 60px;display:inline-block"></i>
+                  </dt>
+                </dl>
+              </a>
+              <a href="https://www.cebbank.com/per/prePerlogin.do?_locale=zh_CN" target="_blank">
+                <dl style="margin: 0;">
+                  <dt style="margin:auto"><i class="icon icon-safe-repay" style="background-image: url(http://we.bpglobals.com/images/banks/002.png);background-size: 100%;width: 150px;height: 60px;display:inline-block"></i>
+                  </dt>
+
+                </dl>
+              </a>
+              <a href="https://ebanks.cgbchina.com.cn/perbank/" target="_blank">
+                <dl style="margin: 0;">
+                  <dt style="margin:auto"><i class="icon icon-safe-money" style="background-image: url(http://we.bpglobals.com/images/banks/003.png);background-size: 100%;width: 150px;height: 60px;display:inline-block"></i>
+                  </dt>
+
+                </dl>
+              </a>
+              <a href="http://www.hxb.com.cn/index.shtml" target="_blank">
+                <dl style="margin: 0;">
+                  <dt style="margin:auto"><i class="icon icon-safe-lock" style="background-image: url(http://we.bpglobals.com/images/banks/004.png);background-size: 100%;width: 150px;height: 60px;display:inline-block"></i>
+                  </dt>
+
+                </dl>
+              </a>
+              <a href="http://www.ccb.com/cn/home/indexv3.html" target="_blank">
+                <dl style="margin: 0;">
+                  <dt style="margin:auto"><i class="icon icon-safe-safe" style="background-image: url(http://we.bpglobals.com/images/banks/005.png);background-size: 100%;width: 150px;height: 60px;display:inline-block"></i>
+                  </dt>
+
+                </dl>
+              </a>
+
+              <a href="https://pbank.95559.com.cn/personbank/index.html" target="_blank">
+                <dl style="margin: 0;">
+                  <dt style="margin:auto"><i class="icon icon-safe-safe" style="background-image: url(http://we.bpglobals.com/images/banks/006.png);background-size: 100%;width: 150px;height: 60px;display:inline-block"></i>
+                  </dt>
+                </dl>
+              </a>
+              <a href="https://nper.cmbc.com.cn/pweb/static/login.html" target="_blank">
+                <dl style="margin: 0;">
+                  <dt style="margin:auto"><i class="icon icon-safe-repay" style="background-image: url(http://we.bpglobals.com/images/banks/007.png);background-size: 100%;width: 150px;height: 60px;display:inline-block"></i>
+                  </dt>
+
+                </dl>
+              </a>
+              <a href="https://perbank.abchina.com/EbankSite/startup.do?r=F4E3AF0181FF26E7" target="_blank">
+                <dl style="margin: 0;">
+                  <dt style="margin:auto"><i class="icon icon-safe-money" style="background-image: url(http://we.bpglobals.com/images/banks/008.png);background-size: 100%;width: 150px;height: 60px;display:inline-block"></i>
+                  </dt>
+
+                </dl>
+              </a>
+              <a href="https://bank.pingan.com.cn/m/main/index.html" target="_blank">
+                <dl style="margin: 0;">
+                  <dt style="margin:auto"><i class="icon icon-safe-lock" style="background-image: url(http://we.bpglobals.com/images/banks/009.png);background-size: 100%;width: 150px;height: 60px;display:inline-block"></i>
+                  </dt>
+
+                </dl>
+              </a>
+              <a href="https://ebank.spdb.com.cn/nbper/prelogin.do" target="_blank">
+                <dl style="margin: 0;">
+                  <dt style="margin:auto"><i class="icon icon-safe-safe" style="background-image: url(http://we.bpglobals.com/images/banks/010.png);background-size: 100%;width: 150px;height: 60px;display:inline-block"></i>
+                  </dt>
+
+                </dl>
+              </a>
+
+              <a href="https://personalbank.cib.com.cn/pers/main/login.do" target="_blank">
+                <dl style="margin: 0;">
+                  <dt style="margin:auto"><i class="icon icon-safe-safe" style="background-image: url(http://we.bpglobals.com/images/banks/011.png);background-size: 100%;width: 150px;height: 60px;display:inline-block"></i>
+                  </dt>
+                </dl>
+              </a>
+              <a href="https://pbank.psbc.com/perbank/" target="_blank">
+                <dl style="margin: 0;">
+                  <dt style="margin:auto"><i class="icon icon-safe-repay" style="background-image: url(http://we.bpglobals.com/images/banks/012.png);background-size: 100%;width: 150px;height: 60px;display:inline-block"></i>
+                  </dt>
+
+                </dl>
+              </a>
+              <a href="https://pbsz.ebank.cmbchina.com/CmbBank_GenShell/UI/GenShellPC/Login/Login.aspx" target="_blank">
+                <dl style="margin: 0;">
+                  <dt style="margin:auto"><i class="icon icon-safe-money" style="background-image: url(http://we.bpglobals.com/images/banks/013.png);background-size: 100%;width: 150px;height: 60px;display:inline-block"></i>
+                  </dt>
+
+                </dl>
+              </a>
+              <a href="https://ebsnew.boc.cn/boc15/login.html" target="_blank">
+                <dl style="margin: 0;">
+                  <dt style="margin:auto"><i class="icon icon-safe-lock" style="background-image: url(http://we.bpglobals.com/images/banks/014.png);background-size: 100%;width: 150px;height: 60px;display:inline-block"></i>
+                  </dt>
+
+                </dl>
+              </a>
+              <a href="https://i.bank.ecitic.com/perbank6/signIn.do" target="_blank">
+                <dl style="margin: 0;">
+                  <dt style="margin:auto"><i class="icon icon-safe-safe" style="background-image: url(http://we.bpglobals.com/images/banks/015.png);background-size: 100%;width: 150px;height: 60px;display:inline-block"></i>
+                  </dt>
+
+                </dl>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="payfor_remind">
+          <h3 class="remind_title">支付提醒</h3>
+          <ul class="remind_content">
+            <li class="remind_content_item first">1.请使用实名制的银行卡、支付宝、微信支付等进行转账。</li>
+            <li class="remind_content_item">2.若交易金额大于￥50000，法定节假日或工作日17：00点以后汇款到银行卡可能造成汇款不及时，请分批支付（单笔支付金额小于￥50000）保证即时到账，若未即时到账，承兑商有权拒绝。</li>
+            <li class="remind_content_item">3.每次支付随机匹配的卖家不同，同一个卖家所使用的银行卡也可能不同，请按照每次所显示的付款信息打款，请勿直接打款到之前充值过的卡号，否则可能无法到账，造成的损失平台概不负责。</li>
+            <li class="remind_content_item">4.转账时请勿填写任何备注！包括数字货币、USDT、充值、美金、外汇等字样。否则可能导致卖家账户和您的账户被冻结，造成的损失平台概不负责。</li>
+            <li class="remind_content_item">5.重要提示：作为独立公正的数字货币撮合平台，{{COMPANY_ABBREVIATION}}平台坚决反对任何机构和个人利用{{COMPANY_ABBREVIATION}}产品从事不符合法律的商业行为。如果您对交易有疑问，或有任何的投诉或建议，请email联系{{COMPANY_ABBREVIATION}}官方客服：{{EMAIL_RECEIVER}}。我们确保100%回复。</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="./yft2_files/jquery.min.js"></script>
+  <script src="./yft2_files/clipboard.min.js"></script>
+  <script>
+    try {
+      if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        $(".header_content").css("marginLeft", '0');
+        $('#logoimg2').hide();
+        $('#logoimg1').css("width", '70px');
+        $('#logoimg1').css("marginLeft", 'auto');
+        $('#logoimg1').css("marginRight", 'auto');
+        $('.menu').css('marginTop', '20px');
+      }
+    } catch (e) {}
+
+    $(function() {
+      var Id = '';
+      var payUrl = 'http://pay-api.mustpay.me';
+      //     var payUrl = 'http://192.168.2.144:9091';
+
+      function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = decodeURIComponent(window.location.search).substr(1).match(reg); //匹配目标参数
+        if (r != null) return unescape(r[2]);
+        return null; //返回参数值
+      }
+
+      function getDate(strDate) {
+        var date = eval('new Date(' + strDate.replace(/\d+(?=-[^-]+$)/,
+          function(a) {
+            return parseInt(a, 10) - 1;
+          }).match(/\d+/g) + ')');
+        return date;
+      }
+
+      Date.prototype.Format = function(fmt) { //author: meizz
+        var o = {
+          "M+": this.getMonth() + 1, //月份
+          "d+": this.getDate(), //日
+          "H+": this.getHours(), //小时
+          "m+": this.getMinutes(), //分
+          "s+": this.getSeconds(), //秒
+          "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+          "S": this.getMilliseconds() //毫秒
+        };
+        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+          if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+      }
+
+      function GetDateDiff(startTime, endTime, diffType) {
+        //将xxxx-xx-xx的时间格式，转换为 xxxx/xx/xx的格式
+        startTime = startTime.replace(/\-/g, "/");
+        endTime = endTime.replace(/\-/g, "/");
+        //将计算间隔类性字符转换为小写
+        diffType = diffType.toLowerCase();
+        var sTime = new Date(startTime); //开始时间
+        var eTime = new Date(endTime); //结束时间
+        //作为除数的数字
+        var timeType = 1;
+        switch (diffType) {
+          case "second":
+            timeType = 1000;
+            break;
+          case "minute":
+            timeType = 1000 * 60;
+            break;
+          case "hour":
+            timeType = 1000 * 3600;
+            break;
+          case "day":
+            timeType = 1000 * 3600 * 24;
+            break;
+          default:
+            break;
+        }
+        return parseInt((eTime.getTime() - sTime.getTime()) / parseInt(timeType));
+      }
+      var orderNo_ = getUrlParam('orderNo')
+      /*$.ajax({
+        //url: payUrl + "/mobile/orderDetail",
+		url: "/order/pay",
+        type: "POST",
+        data: "orderNo=" + orderNo_, //后台用 request.getParameter("key");
+        dataType: "json", //返回数据的 类型 text|json|html--
+        success: function(res) { //回调函数 和 后台返回的 数据
+            if (res.code == 0) {
+                var orderInfo = res.data.order;
+                var payInfo = res.data.bank;
+				var nickname = res.data.nickname;
+				var currency = ' USDT';
+                $("#orderNum").html(orderInfo.order_sn)
+                $("#investCurrencyCount").html(orderInfo.pay_amount + currency)
+                $("#investAmount").html(orderInfo.order_amount)
+                $(".number").html(orderInfo.serial)
+                $("#nickName").html(nickname + '<img src="/Public/static/credit.png" style="margin-left:20px;" alt="">')
+                $("#tradeCountMonth").html(orderInfo.tradeCountMonth + currency)
+                if (payInfo.find(x => x.channelId == 1) == undefined) {
+                    $('.bank_statue').html("承兑商未设置银行卡，请选用其他支付方式.");
+                }
+                //for (var i = 0; i < payInfo.length; i++) {
+                    if (payInfo.type == 'bank') {
+                        $('.tab_content .info_item').css({ display: 'block' })
+                        $('.bank_statue').css({ display: 'none' });
+                        $("#realName").html(payInfo[i].realName)
+                        $("#depositBank").html(payInfo[i].depositBank)
+                        $("#cardNumber").html(payInfo[i].cardNumber)
+                    } else if (payInfo.type == 'alipay') {
+                        $('.tab_title .info_item').eq(2).addClass('isShow active')
+                        $(".Qr_paypal").css({ display: 'flex' });
+                        $("#paypal").attr("src", "http://file.fxmust.com" + payInfo[i].cardImgUrl);
+                        $("#pay_realName").html(payInfo[i].realName)
+                    } else if (payInfo.type == 'wxpay') {
+                        $('.tab_title .info_item').eq(1).addClass('isShow active')
+                        $(".Qr_wechart").css({ display: 'flex' });
+                        $("#wechart").attr("src", "http://file.fxmust.com" + payInfo[i].cardImgUrl);
+                        $("#we_realName").html(payInfo[i].realName)
+                    }
+                //}
+                Id = orderInfo.id;
+                var now = new Date();
+                var orderTime = getDate(orderInfo.lastEffivectTime);
+                var timeTiner = GetDateDiff(now.Format("yyyy-MM-dd HH:mm:ss"), orderTime.Format("yyyy-MM-dd HH:mm:ss"), "second");
+                $("#tradeCount").html(parseInt((Math.random() * 100 + 15)) + "笔");
+                if (timeTiner <= 0) {
+                    $("#maybe").html("订单已过期，请重新支付。")
+                } else {
+                    timer(timeTiner);
+                }
+            } else {
+                alert(users.message)
+            }
+        }
+    });*/
+      $("#reminderBtn").click(function() {
+        var order_sn = $('#orderNum').text();
+        $.ajax({
+          // url: "http://pay-api.mustpay.me/mobile/depositPayComplete",
+          url: "/order/payComfirm",
+          type: "POST",
+          data: "order_sn=" + order_sn,
+          dataType: "json", //返回数据的 类型 text|json|html--
+          success: function(res) { //回调函数 和 后台返回的 数据
+            if (res.code == 200) {
+              alert('确认成功');
+              // window.location.href = 'payEnd.html'
+            } else {
+              alert(res.msg)
+            }
+          }
+        });
+      });
+      var intDiff = parseInt(1800); //倒计时总秒数量
+      function timer(intDiff) {
+        window.setInterval(function() {
+          var day = 0,
+            hour = 0,
+            minute = 0,
+            second = 0; //时间默认值
+          if (intDiff > 0) {
+            hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+            minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+            second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+          }
+          if (minute <= 9) minute = '0' + minute;
+          if (second <= 9) second = '0' + second;
+          $('#hour_show').html('<s id="h"></s>' + hour + '时');
+          $('#minute_show').html('<s></s>' + minute + '分');
+          $('#second_show').html('<s></s>' + second + '秒');
+          if (intDiff <= 0) {
+            $("#maybe").html("订单已过期，请重新支付。")
+          }
+          intDiff--;
+        }, 1000);
+      };
+      timer(intDiff);
+
+      var tabBtns = $('.tab_title .info_item');
+      var tabDivs = $('.tab_content');
+      tabBtns.click(function() {
+        var index = $(this).index()
+        $(this).addClass('active').siblings('.info_item').removeClass('active')
+        tabDivs.eq(index).addClass('payment_wrap').siblings('.tab_content').removeClass('payment_wrap')
+      })
+
+
+
+      ///复制
+      var clipboard1 = new ClipboardJS('#nameCopy', {
+        text: function(trigger) {
+          return $('#realName').html();
+        }
+      });
+      clipboard1.on('success', function(e) {
+        alert('复制成功！');
+
+        e.clearSelection();
+      });
+
+
+      var clipboard2 = new ClipboardJS('#cardCopy', {
+        text: function(trigger) {
+          return $('#cardNumber').html();
+        }
+      });
+      clipboard2.on('success', function(e) {
+        alert('复制成功！');
+
+        e.clearSelection();
+      });
+    });
+  </script>
+
+
+</body>
+
+</html>

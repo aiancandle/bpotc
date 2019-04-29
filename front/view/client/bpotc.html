@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- saved from url=(0095)http://we.rocketotc.com/order/success?url=http%3A%2F%2Fmy.svofx.com%2Fapp%2Ffundmgmt%2Ffundflow -->
+<html lang="zh-cn">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>bpotc</title>
+  <link rel="stylesheet" href="./bpotc_files/base.css">
+  <link rel="stylesheet" href="./bpotc_files/order.css">
+  <link href="./bpotc_files/font-awesome.min.css" rel="stylesheet">
+  <link href="./bpotc_files/jquery-confirm.min.css" rel="stylesheet">
+  <link href="./bpotc_files/toastr.min.css" rel="stylesheet">
+  <script src="./bpotc_files/clipboard.min.js"></script>
+  <style>
+    .nav {
+      background: url(img/nav.jpg) repeat-x center #191d3b;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- <div class="nav">
+    <div class="container">
+        <a href="/" class="brand"><span></span>最安全快捷的加密货币兑换工具</a>
+    </div>
+</div> -->
+
+  <div class="order-success">
+    <div class="container" style="width: 100%">
+      <div class="order-success-head">
+        <i class="icon icon-success"><span></span></i>
+        <span>提交成功</span>
+
+        <p>根据您的授权，您购买的USDT将自动支付到商户账户完成充值</p>
+      </div>
+
+      <div class="order-step">
+        <ul>
+          <li class="active">订单完成</li>
+          <li class="current active">卖家已接单并开始处理</li>
+          <li class="active">预计成功到账：5分钟内</li>
+        </ul>
+      </div>
+      <div class="order-back">
+        <a class="btn btn-primary btn-lg" href="{{pickupUrl}}"><span id="time">8s</span> 返回商家</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="./bpotc_files/jquery.min.js"></script>
+  <script>
+    var delay = 8; //延迟8s
+    var timer = setInterval(showtime, 1000)
+    $('.order-step li').each(function(i, el) {
+      setTimeout(function() {
+        $(el).addClass('active');
+      }, 500 * i)
+    })
+
+    function showtime() {
+      if (--delay == 0) {
+        location.href = '{{pickupUrl}}';
+        clearInterval(timer);
+        return;
+      }
+      $('#time').html(delay + 's');
+    }
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122927834-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-122927834-1');
+</script> -->
+
+
+</body>
+
+</html>

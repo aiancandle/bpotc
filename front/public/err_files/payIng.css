@@ -1,0 +1,464 @@
+.pay_ing {
+    padding-bottom: 78px;
+}
+
+.pay_ing .header {
+    height: 70px;
+    background: white;
+}
+
+.pay_ing .header .header_content {
+    max-width: 1200px;
+    height: 70px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.pay_ing .content {
+    max-width: 1150px;
+    background: white;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 0 25px;
+}
+
+.pay_ing .content .golden_info {
+    padding-top: 40px;
+}
+
+.pay_ing .content .golden_info .title {
+    border-left: 5px solid #2f79f4;
+    padding-left: 25px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 20px;
+    color: #2f79f4;
+}
+
+.pay_ing .content .golden_info .golden_main {
+    margin-top: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #efefef;
+    padding-left: 194px;
+    padding-right: 268px;
+    padding-bottom: 30px;
+    min-width: 900px;
+    box-sizing: border-box;
+}
+
+.golden_main .item_box {
+    padding-top: 6px;
+}
+
+.golden_main .item_box .item {
+    margin-top: 34px;
+}
+
+.golden_main .item_box .item>p {
+    font-size: 14px;
+    color: #5b5e67;
+}
+
+.golden_main .item_box .item>p span {
+    display: inline-block;
+    /*width: 75px;*/
+    text-align: right;
+    /*margin-right: 20px;*/
+}
+
+.golden_main .item_box .item>p #item_first {
+    width: 75px;
+}
+
+.golden_main .pay_time_wrap {
+    margin-top: 68px;
+    text-align: center;
+}
+
+.pay_time_wrap .s_pay_title {
+    display: none;
+}
+
+.golden_main .pay_time_wrap .pay_title {
+    font-size: 14px;
+    color: #5b5e67;
+}
+
+.golden_main .pay_time_wrap .pay_time {
+    font-size: 20px;
+    color: #dc1f0b;
+    margin-top: 26px;
+    font-weight: 600;
+}
+
+.datum {
+    padding-top: 36px;
+    padding-bottom: 48px;
+}
+
+.datum .title {
+    font-size: 20px;
+    color: #2f79f4;
+    border-left: 5px solid #2f79f4;
+    padding-left: 25px;
+    height: 24px;
+    line-height: 24px;
+}
+
+.bank_info_wrap,
+.reminder {
+    min-width: 900px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 194px;
+    padding-right: 160px;
+}
+
+.bank_info {
+    width: 420px;
+    min-width: 335px;
+}
+
+.bank_info .tab_title {
+    display: flex;
+}
+
+.bank_info .tab_content {
+    display: none;
+    /*height: 178px;*/
+}
+
+.bank_info .tab_content .info_item {
+    display: none;
+}
+
+.bank_info .tab_content>p {
+    margin-top: 15px;
+}
+
+.bank_info .tab_content>p .number {
+    color: #dc1f0b;
+    background: #f6faff;
+    margin-left: 8px;
+    padding: 4px 8px;
+}
+
+.bank_info .tab_content .Qr_code {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    padding-top: 10px;
+}
+
+.bank_info .tab_content .Qr_code>img {
+    /*height: 96px;*/
+    width: 180px;
+    border: 1px solid #ccc;
+}
+
+.bank_info .tab_content .Qr_code>p {
+    margin-top: 10px;
+}
+
+.bank_info .payment_wrap {
+    display: block;
+    border: 1px solid #efefef;
+    padding: 0 10px 15px;
+    border-top: 1px solid white;
+}
+
+.bank_info .payment_wrap .info_item {
+    margin-top: 34px;
+}
+
+.bank_info .payment_wrap .info_item:nth-child(1) {
+    margin-top: 18px;
+}
+
+.bank_info .tab_title .info_item {
+    display: none;
+    border-bottom: 1px solid #efefef;
+}
+
+.bank_info .tab_title .info_item.active {
+    border: 1px solid #efefef;
+    border-bottom: none;
+}
+
+.bank_info .tab_title .info_item.isShow {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 8px 18px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.bank_info .tab_title .info_item>img {
+    width: 22px;
+    height: 20px;
+}
+
+.bank_info .tab_title .info_item .icon {
+    width: 22px;
+    height: 22px;
+}
+
+.tab_title .info_item span {
+    margin-left: 10px;
+}
+
+.info_item .number {
+    color: #dc1f0b;
+    background: #f6faff;
+    margin-left: 8px;
+    padding: 4px 8px;
+}
+
+.bank_info_right {
+    width: 390px;
+    min-width: 300px;
+    height: 224px;
+    background: #fbfdff url("../image/safe_bg.png") no-repeat;
+    background-position: 90%;
+    padding-left: 40px;
+    padding-top: 10px;
+    margin-left: 20px;
+}
+
+.bank_info_right .rigth_item {
+    font-size: 14px;
+    color: #293d69;
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+.bank_info_right .rigth_item.status {
+    font-weight: 600;
+}
+
+.payfor_remind {
+    background: #fbfdff;
+    margin-left: 194px;
+    margin-right: 160px;
+    margin-top: 20px;
+    padding-left: 22px;
+    padding-right: 32px;
+    padding-bottom: 22px;
+}
+
+.payfor_remind .remind_title {
+    font-size: 14px;
+    color: #2f79f4;
+    font-weight: 600;
+    padding-top: 20px;
+}
+
+.payfor_remind .remind_content {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #12192c;
+
+}
+
+.payfor_remind .remind_content .remind_content_item {
+    margin-top: 6px;
+    line-height: 20px;
+}
+
+.payfor_remind .remind_content .remind_content_item.first {
+    color: #dc1f0b;
+}
+
+.reminder {
+    border-bottom: 1px solid #efefef;
+    padding-bottom: 30px;
+    cursor:pointer;
+    -webkit-animation: shake 1s;
+}
+
+.reminder .reminder_text {
+    background: url("../static/warning_icon.png") left center no-repeat;
+    line-height: 24px;
+    padding-left: 30px;
+}
+
+.reminder .btn {
+    width: 136px;
+    height: 38px;
+    background: #317bf4;
+    border: none;
+    color: white;
+    border-radius: 3px;
+    cursor:pointer;
+    margin-right:90px;
+	animation: toastScale 1s .15s linear infinite;
+	-webkit-animation: toastScale 1s .15s linear infinite;
+}
+.reminder .btn:hover{
+	opacity: 0.8;
+}
+
+@media only screen and (max-width: 900px) {
+    .pay_ing {
+        padding-bottom: 0; 
+    }
+
+    .pay_ing .header {
+        width: 100vw;
+        box-sizing: border-box;
+        padding-left: 15px;
+    }
+
+    .pay_ing .header .header_content>img {
+        width: 90%;
+        box-sizing: border-box;
+    }
+
+    .pay_ing .content {
+        width: 100%;
+        background: white;
+        margin-top: 20px;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .pay_ing .content .golden_info .golden_main {
+        min-width: 0;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 0 20px;
+    }
+
+    .golden_main .pay_time_wrap {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        text-align: left;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .pay_time_wrap .pay_title {
+        display: none;
+    }
+
+    .pay_time_wrap #item_first {
+        width: 75px;
+        text-align: right;
+    }
+
+    .pay_time_wrap .s_pay_title {
+        display: block;
+        font-size: 14px;
+        color: #5b5e67;
+    }
+
+    .golden_main .pay_time_wrap .pay_time {
+        margin-top: 0;
+    }
+
+    .bank_info_wrap .bank_info {
+        min-width: 0;
+        width: 100%;
+        margin-top: 280px;
+    }
+
+    .bank_info_wrap {
+        min-width: 0;
+        box-sizing: border-box;
+        margin-top: 0;
+        padding-left: 0;
+        padding-right: 0;
+        position: relative;
+    }
+
+    .bank_info_right {
+        box-sizing: border-box;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top: 20px;
+        margin-left: 0;
+        min-width: 0;
+        width: 100%;
+        height: 224px;
+        background: #fbfdff url("../image/safe_bg.png") no-repeat right center;
+        padding-left: 20px;
+    }
+
+    .bank_info_right .rigth_item {
+        font-size: 14px;
+        color: #293d69;
+        margin-top: 20px;
+        font-weight: 500;
+    }
+
+    .payfor_remind {
+        margin: 0;
+    }
+
+    .reminder {
+        min-width: 0;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 17px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .reminder .reminder_text {
+        background: url("../static/warning_icon.png") left 4px no-repeat;
+        background-size: 15px 15px;
+        line-height: 20px;
+        font-weight: 600;
+    }
+
+    .reminder .btn {
+        margin-top: 20px;
+        /*margin-left: -30px;*/
+        margin-bottom: 15px;
+        margin-right:0;
+    }
+}
+@-webkit-keyframes toastScale {
+ 10% {
+  	transform: rotate(15deg);
+  }
+  20% {
+  	transform: rotate(-10deg);
+  }
+  30% {
+    transform: rotate(5deg);
+  }
+  40% {
+    transform: rotate(-5deg);
+  }
+  50%,100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes toastScale {
+  10% {
+  	transform: rotate(15deg);
+  }
+  20% {
+  	transform: rotate(-10deg);
+  }
+  30% {
+    transform: rotate(5deg);
+  }
+  40% {
+    transform: rotate(-5deg);
+  }
+  50%,100% {
+    transform: rotate(0deg);
+  }
+}

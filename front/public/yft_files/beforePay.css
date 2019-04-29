@@ -1,0 +1,330 @@
+.beforePay {
+    margin-bottom: 50px;
+}
+
+.beforePay .header {
+    height: 70px;
+    background: white;
+}
+
+.beforePay .header .header_content {
+    max-width: 1200px;
+    height: 70px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.content {
+    max-width: 1200px;
+    background: white;
+    margin: 0 auto;
+    margin-top: 20px;
+    box-sizing: border-box;
+    padding: 0 25px;
+}
+
+.golden_info {
+    padding-top: 40px;
+}
+
+.golden_info .title {
+    border-left: 5px solid #2f79f4;
+    padding-left: 25px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 20px;
+    color: #2f79f4;
+}
+
+.golden_info .golden_main {
+    margin-top: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+    padding-left: 194px;
+    padding-right: 268px;
+    padding-bottom: 60px;
+}
+
+.golden_main .item_box {
+    padding-top: 6px;
+}
+
+.item_box .item {
+    margin-top: 34px;
+}
+
+.item_box .item>p {
+    font-size: 14px;
+    color: #5b5e67;
+}
+
+.item_box .item>p>span {
+    display: inline-block;
+    width: 75px;
+    color: #5b5e67;
+    text-align: right;
+    margin-right: 20px;
+}
+
+.item_box .item #name,
+.item_box .item #money,
+.item_box .item #huilv {
+    width: auto;
+    text-align: left;
+}
+
+.pay_time_wrap {
+    margin-top: 68px;
+    text-align: center;
+}
+
+.pay_time_wrap .s_pay_title {
+    display: none;
+}
+
+.pay_time_wrap .pay_title {
+    font-size: 14px;
+    color: #5b5e67;
+}
+
+.pay_time_wrap .pay_time {
+    font-size: 20px;
+    color: #dc1f0b;
+    margin-top: 26px;
+    font-weight: 600;
+}
+
+.datum {
+    padding-top: 36px;
+}
+
+.datum .title {
+    font-size: 20px;
+    color: #2f79f4;
+    border-left: 5px solid #2f79f4;
+    padding-left: 25px;
+    height: 24px;
+    line-height: 24px;
+}
+
+.datum .bank_info_wrap {
+    background: #fbfdff;
+    padding-top: 20px;
+    margin-top: 20px;
+    padding-bottom: 30px;
+}
+
+.datum .bank_info_wrap>p {
+    padding-left: 130px;
+    font-size: 14px;
+    color: #293d69;
+    margin-top: 20px;
+}
+
+.datum .bank_info_wrap .footer {
+    margin-top: 40px;
+}
+
+.footer .footer_top,
+.footer .footer_btn {
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	cursor:pointer;
+}
+
+input[type="checkbox"] {
+    border: #999 solid 1px;
+    border-radius: 3px;
+    width: 15px;
+    height: 15px;
+}
+
+.footer_btn {
+    margin-top: 10px;
+}
+
+.footer_btn>button {
+    width: 136px;
+    height: 38px;
+    background: #317bf4;
+    border: none;
+    color: white;
+    border-radius: 3px;
+}
+
+.beforePay_footer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 56px;
+    padding-bottom: 56px;
+}
+
+.beforePay_footer .bfy_footer_item {
+    display: flex;
+    align-items: center;
+}
+
+.beforePay_footer .bfy_footer_item>img {
+    width: 80px;
+    height: 80px;
+}
+
+.beforePay_footer .bfy_footer_item .bfy_footer_item_text {
+    margin-left: 18px;
+    width: 155px;
+}
+
+.beforePay_footer .bfy_footer_item .bfy_footer_item_text>h3 {
+    font-size: 20px;
+    color: #293d69;
+    font-weight: 600;
+}
+
+.beforePay_footer .bfy_footer_item .bfy_footer_item_text>p {
+    font-size: 14px;
+    color: #a3a8b5;
+    line-height: 19px;
+    margin-top: 12px;
+}
+
+/*小屏*/
+@media only screen and (max-width: 900px) {
+    .beforePay {
+        margin: 0;
+    }
+
+    .beforePay .header .header_content {
+        margin-left: 15px;
+    }
+
+    .beforePay .header .header_content>img {
+        width: 90%;
+        box-sizing: border-box;
+    }
+
+    .content {
+        width: 100%;
+        background: white;
+        margin-top: 20px;
+        box-sizing: border-box;
+        padding: 0 15px;
+    }
+
+    .golden_info .golden_main {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 0;
+    }
+
+    .pay_time_wrap {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        text-align: left;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .pay_time_wrap .pay_title {
+        display: none;
+    }
+
+    .pay_time_wrap .s_pay_title {
+        display: block;
+        width: 75px;
+        font-size: 14px;
+        color: #5b5e67;
+        text-align: right;
+    }
+
+    .pay_time_wrap .pay_time {
+        margin-top: 0;
+        margin-left: 40px;
+    }
+
+    .datum .bank_info_wrap {
+        margin-top: 10px;
+        padding: 8px 10px 30px 10px;
+    }
+
+    .datum .bank_info_wrap>p {
+        padding-left: 0;
+        margin-top: 16px;
+        line-height: 24px;
+    }
+
+    .beforePay_footer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 0;
+    }
+
+    .beforePay_footer .bfy_footer_item {
+        margin-top: 20px;
+    }
+}
+
+.currencyBox{
+    max-width:480px;
+    margin:0 auto;
+    padding-top:60px;
+}
+.currencyBox .img canvas{
+    width:220px;
+    height:220px;
+    display:block;
+    margin:0 auto;
+}
+.currencyBox .list{
+    margin-top:30px;
+    line-height:40px;
+    width:100%;
+}
+.currencyBox .list .list_left{
+    float:left;
+    width:85px;
+    font-size:14px;
+    color:#283d68;
+}
+.currencyBox .list .list_right{
+    margin-left:85px;
+    font-size:20px;
+    color:#283d68;
+    font-weight:600;
+}
+.currencyBox .copy{
+    float:right;
+    width:76px;
+    line-height:40px;
+    text-align:center;
+    background:#2e79f3;
+    color:#fff;
+    font-size:14px;
+    cursor:pointer;
+}
+.currencyBox .intBox{
+    margin-right:76px;
+}
+.currencyBox .intBox input{
+    border:1px solid #eeeeee;
+    height:38px;
+    line-height:38px;
+    display: block;
+    width:100%;
+    font-weight:300;
+    font-size:14px;
+    box-sizing:border-box;
+}
+.currencyBox .tips{
+    color:#db1f0b;
+    font-size:14px;
+    line-height:25px;
+    margin-top:40px;
+}

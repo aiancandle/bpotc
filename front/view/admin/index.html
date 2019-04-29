@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>{{ TITLE }}</title>
+  <link rel="stylesheet" href="/layui/dist/css/layui.css" media="all">
+  <style>
+    body {
+      margin: 10px;
+    }
+
+    pre>span {
+      line-height: 1px;
+      height: 5px;
+    }
+
+    .string {
+      color: green;
+    }
+
+    .number {
+      color: darkorange;
+    }
+
+    .boolean {
+      color: blue;
+    }
+
+    .null {
+      color: magenta;
+    }
+
+    .key {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="layui-tab">
+    <ul {{ SETTING_HIDE }} class="layui-tab-title">
+      <li class="layui-this">订单管理</li>
+      <li>账户管理</li>
+      <li>系统设置</li>
+      <li>其它选项</li>
+    </ul>
+    <div class="layui-tab-content">
+      <div class="layui-tab-item {{ ORDER_HIDE }}">
+        <table class="layui-hide" id="order" lay-filter="order"></table>
+      </div>
+
+      <div class="layui-tab-item">
+        <table class="layui-hide" id="account" lay-filter="account"></table>
+      </div>
+
+      <div class="layui-tab-item {{ CONFIGS_SHOW }}">
+        <form class="layui-form" lay-filter="configs">
+          <div class="layui-form-item">
+            <label class="layui-form-label">登陆账号</label>
+            <div class="layui-input-inline">
+              <input lay-verify="required" type="text" name="LOGIN_ACCOUNT" placeholder="请输入" autocomplete="off" class="layui-input">
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <label class="layui-form-label">登陆密码</label>
+            <div class="layui-input-inline">
+              <input lay-verify="required" type="text" name="LOGIN_PASSWORD" placeholder="请输入" autocomplete="off" class="layui-input">
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <label class="layui-form-label">确认密码</label>
+            <div class="layui-input-inline">
+              <input lay-verify="required" type="text" name="CONFIRM_PASSWORD" placeholder="请输入" autocomplete="off" class="layui-input">
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <label class="layui-form-label">系统邮箱</label>
+            <div class="layui-input-inline">
+              <input lay-verify="required" type="text" name="EMAIL_SENDER" placeholder="请输入" autocomplete="off" class="layui-input">
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <label class="layui-form-label">邮箱密码</label>
+            <div class="layui-input-inline">
+              <input lay-verify="required" type="text" name="EMAIL_PASSWORD" placeholder="请输入" autocomplete="off" class="layui-input">
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <label class="layui-form-label">邮箱主题</label>
+            <div class="layui-input-inline">
+              <input lay-verify="required" type="text" name="EMAIL_SUBJECT" placeholder="请输入" autocomplete="off" class="layui-input">
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <label class="layui-form-label">接收邮箱</label>
+            <div class="layui-input-inline">
+              <input lay-verify="required" type="text" name="EMAIL_RECEIVER" placeholder="请输入" autocomplete="off" class="layui-input">
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <label class="layui-form-label">MD5Key</label>
+            <div class="layui-input-inline">
+              <input lay-verify="required" type="text" name="LEANWOREK_KEY" placeholder="请输入" autocomplete="off" class="layui-input">
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <label class="layui-form-label">接口服务</label>
+            <div class="layui-input-inline">
+              <input lay-verify="required" type="checkbox" name="SERVER_OPEN" value="开启" lay-text="开启|关闭" lay-skin="switch">
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <label class="layui-form-label">自动回调</label>
+            <div class="layui-input-inline">
+              <input lay-verify="required" type="checkbox" name="AUTO_CALLBACK" value="开启" lay-text="开启|关闭" lay-skin="switch">
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <label class="layui-form-label">入金范围</label>
+            <div class="layui-input-inline" style="width: 100px;">
+              <input lay-verify="required" type="text" name="MIN_VALUE" placeholder="￥" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-mid">-</div>
+            <div class="layui-input-inline" style="width: 100px;">
+              <input lay-verify="required" type="text" name="MAX_VALUE" placeholder="￥" autocomplete="off" class="layui-input">
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <label class="layui-form-label">美元汇率</label>
+            <div class="layui-input-inline">
+              <input lay-verify="number" type="text" name="EXCHANGE_RATE" placeholder="请输入" autocomplete="off" class="layui-input">
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <label class="layui-form-label">公司全称</label>
+            <div class="layui-input-inline">
+              <input lay-verify="required" type="text" name="COMPANY_NAME" placeholder="请输入" autocomplete="off" class="layui-input">
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <label class="layui-form-label">公司简称</label>
+            <div class="layui-input-inline">
+              <input lay-verify="required" type="text" name="COMPANY_ABBREVIATION" placeholder="请输入" autocomplete="off" class="layui-input">
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <div class="layui-input-block">
+              <button class="layui-btn" lay-submit lay-filter="*">{{BUTTON_CONTENT}}</button>
+              <button {{ SETTING_HIDE }} type="reset" class="layui-btn layui-btn-primary">重置</button>
+
+            </div>
+          </div>
+
+        </form>
+        <i {{ SETTING_HIDE }} onclick="fetchConfigs()" class="layui-icon layui-icon-face-surprised" style="font-size: 30px; color: #1E9FFF;"></i>
+      </div>
+
+      <div class="layui-tab-item">
+        <br>
+        <a href="/logout" class="layui-btn">退出</a>
+        <a href="/getExcel" class="layui-btn">下载</a><br><br><br>
+        <form class="layui-form" lay-filter="do">
+          <div class="layui-form-item">
+            <div class="layui-input-inline">
+              <select name="do" lay-verify="required">
+                <option value="softRestart">平滑重启</option>
+                <option value="hardRestart">重启系统</option>
+                <option value="reset">恢复出厂设置</option>
+              </select>
+            </div>
+
+            <div class="layui-input-inline">
+              <button class="layui-btn" lay-submit lay-filter="forDo">确定</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/html" id="OrderBar">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="close">关闭</a>
+    <a class="layui-btn layui-btn-xs" lay-event="confirm">确认</a>
+    <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="callback">回调</a>
+  </script>
+
+  <script src="/layui/dist/layui.js"></script>
+  <script>
+    layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'element', 'slider'], function() {
+      var layer = layui.layer,
+        table = layui.table
+
+      if ({
+          {
+            SETTING_MODO
+          }
+        }) {
+        layer.msg('初次使用需要进行配置');
+      } else {
+        layui.$.ajax({
+          url: '/time',
+          type: 'GET',
+          dataType: 'json',
+          timeout: 1000,
+          cache: false,
+          error: function() {
+            layer.msg("服务器没有响应，请稍后再试！", {
+              icon: 2,
+              time: 400000 //2秒关闭（如果不配置，默认是3秒）
+            })
+          }, //错误执行方法
+          success: function(data) {
+            if (data["code"] == 200) {
+              layer.msg(data["message"], {
+                time: 4000 //2秒关闭（如果不配置，默认是3秒）
+              });
+              table.reload('account');
+            } else {
+              window.location.reload();
+            }
+          }
+        });
+      }
+
+      table.render({
+        elem: '#order',
+        height: 466,
+        width: 950,
+        url: '/cashManagement',
+        response: {
+          statusName: 'code',
+          statusCode: 200,
+          msgName: 'code',
+          countName: 'message',
+          dataName: 'data'
+        },
+        title: '订单列表',
+        page: true,
+        cols: [
+          [ //表头
+            {
+              field: 'id',
+              title: 'ID',
+              width: 40,
+              align: 'center',
+              fixed: 'center',
+              totalRowText: '合计：'
+            }, {
+              field: 'orderNo',
+              title: '外部订单号',
+              align: 'center',
+              width: 160
+            }, {
+              field: 'card_owner',
+              title: '承兑商',
+              align: 'center',
+              width: 75
+            }, {
+              field: 'orderAmount',
+              title: 'CNY',
+              align: 'center',
+              width: 90,
+              totalRow: true
+            }, {
+              field: 'state',
+              title: '状态',
+              align: 'center',
+              width: 87,
+              sort: true,
+            }, {
+              field: 'name',
+              title: '姓名',
+              align: 'center',
+              width: 75
+            }, {
+              field: 'equal_dollar',
+              title: 'USDT',
+              align: 'center',
+              width: 90
+            }, {
+              field: 'callback_result',
+              title: '回调状态',
+              align: 'center',
+              sort: true,
+              width: 110,
+            }, {
+              title: '操作',
+              align: 'center',
+              fixed: 'right',
+              width: 212,
+              align: 'center',
+              toolbar: '#OrderBar'
+            }
+          ]
+        ]
+      });
+
+      table.render({
+        elem: '#account',
+        height: 466,
+        width: 750,
+        url: '/accounts',
+        toolbar: 'default',
+        response: {
+          statusName: 'code',
+          statusCode: 200,
+          msgName: 'message',
+          dataName: 'data'
+        },
+        title: '账户列表',
+        cols: [
+          [ //表头
+            {
+              type: 'checkbox',
+              fixed: 'left'
+            }, {
+              field: 'id',
+              title: 'ID',
+              width: 40,
+              align: 'center',
+              fixed: 'center',
+            }, {
+              field: 'BANK_NAME',
+              title: '银行地址',
+              align: 'center',
+              edit: true,
+              width: 300
+            }, {
+              field: 'CARD_OWNER',
+              title: '持卡人',
+              align: 'center',
+              edit: true,
+              width: 120
+            }, {
+              field: 'CARD_NUMBER',
+              title: '银行卡号',
+              align: 'center',
+              width: 236,
+              edit: true,
+              totalRow: true
+            }
+          ]
+        ]
+      });
+
+      table.on('toolbar(account)', function(obj) {
+        var data = obj.data,
+          layEvent = obj.event
+
+        switch (layEvent) {
+          case 'add':
+            layer.prompt({
+              title: '请输入银行地址',
+            }, function(BANK_NAME, index, elem) {
+              layer.close(index);
+
+              layer.prompt({
+                title: '请输入持卡人姓名',
+              }, function(CARD_OWNER, index, elem) {
+                layer.close(index);
+
+                layer.prompt({
+                  title: '请输入银行卡号',
+                }, function(CARD_NUMBER, index, elem) {
+                  layer.close(index);
+                  layer.prompt({
+                    title: '请输入确认密码',
+                  }, function(NOW_CONFIRM_PASSWORD, index, elem) {
+                    layer.close(index);
+                    layui.$.ajax({
+                      url: '/accounts',
+                      type: 'POST',
+                      data: {
+                        BANK_NAME: BANK_NAME,
+                        CARD_OWNER: CARD_OWNER,
+                        CARD_NUMBER: CARD_NUMBER,
+                        NOW_CONFIRM_PASSWORD: NOW_CONFIRM_PASSWORD,
+                      },
+                      dataType: 'json',
+                      timeout: 1000,
+                      cache: false,
+                      error: function() {
+                        layer.msg("服务器没有响应，请稍后再试！", {
+                          icon: 2,
+                          time: 4000 //2秒关闭（如果不配置，默认是3秒）
+                        })
+                      }, //错误执行方法
+                      success: function(data) {
+                        if (data["code"] == 200) {
+                          layer.msg("操作成功！", {
+                            icon: 1,
+                            time: 4000 //2秒关闭（如果不配置，默认是3秒）
+                          });
+                          table.reload('account');
+                        } else {
+                          layer.msg(data["message"], {
+                            icon: 2,
+                            time: 4000 //2秒关闭（如果不配置，默认是3秒）
+                          });
+                        }
+                      }
+                    });
+                  })
+                })
+
+              })
+
+            })
+            break;
+          case 'update':
+            layer.msg("点击文本进行修改", {
+              time: 2000 //2秒关闭（如果不配置，默认是3秒）
+            });
+            break;
+          case 'delete':
+            var checkStatus = table.checkStatus('account');
+            if (checkStatus.data.length < 1) {
+              layer.msg("当前未选中列", {
+                icon: 0,
+                time: 4000 //2秒关闭（如果不配置，默认是3秒）
+              });
+              return;
+            }
+            layer.prompt({
+              formType: 1,
+              title: '请输入确认密码',
+            }, function(value, index, elem) {
+              layer.close(index);
+              layui.$.each(checkStatus.data, function(i, v) {
+                layui.$.ajax({
+                  url: '/accounts',
+                  type: 'POST',
+                  data: {
+                    method: '__DELETE__',
+                    id: v['id'],
+                    NOW_CONFIRM_PASSWORD: value,
+                  },
+                  dataType: 'json',
+                  timeout: 1000,
+                  cache: false,
+                  error: function() {
+                    layer.msg("服务器没有响应，请稍后再试！", {
+                      icon: 2,
+                      time: 4000 //2秒关闭（如果不配置，默认是3秒）
+                    })
+                  }, //错误执行方法
+                  success: function(data) {
+                    if (data["code"] == 200) {
+                      layer.msg("操作成功！", {
+                        icon: 1,
+                        time: 4000 //2秒关闭（如果不配置，默认是3秒）
+                      });
+                      // obj.del();
+                    } else {
+                      layer.msg(data["message"], {
+                        icon: 2,
+                        time: 4000 //2秒关闭（如果不配置，默认是3秒）
+                      });
+                    }
+                  }
+                });
+
+              });
+              table.reload('account');
+            });
+            break;
+        }
+      });
+
+      table.on('tool(order)', function(obj) {
+        var data = obj.data,
+          layEvent = obj.event;
+        switch (layEvent) {
+          case 'detail':
+            layui.$.get("orderDetails?id=" + data['id'], function(data, status) {
+              layer.open({
+                title: '详细信息',
+                content: syntaxHighlight(data),
+                area: ['500px', '300px']
+              });
+            });
+            break;
+          case 'close':
+            layer.confirm('确认关闭此订单？', function(index) {
+              layer.close(index);
+              layer.prompt({
+                formType: 1,
+                title: '请输入确认密码',
+              }, function(value, index, elem) {
+
+                layui.$.ajax({
+                  url: '/auditOrder',
+                  type: 'POST',
+                  data: {
+                    id: data['id'],
+                    NOW_CONFIRM_PASSWORD: value,
+                    state: "订单关闭"
+                  },
+                  dataType: 'json',
+                  timeout: 1000,
+                  cache: false,
+                  error: function() {
+                    layer.msg("服务器没有响应，请稍后再试！", {
+                      icon: 2,
+                      time: 4000 //2秒关闭（如果不配置，默认是3秒）
+                    })
+                  }, //错误执行方法
+                  success: function(data) {
+                    if (data["code"] == 200) {
+                      layer.msg("操作成功！", {
+                        icon: 1,
+                        time: 4000 //2秒关闭（如果不配置，默认是3秒）
+                      });
+                      obj.update({
+                        state: "订单关闭",
+                      });
+                    } else {
+                      layer.msg(data["message"], {
+                        icon: 2,
+                        time: 4000 //2秒关闭（如果不配置，默认是3秒）
+                      });
+                    }
+                    layer.close(index);
+                  }
+                });
+              });
+            });
+            break;
+          case 'confirm':
+            layer.confirm('确认此订单支付成功？', function(index) {
+              if (data['name'] == '----') {
+                layer.confirm('这是一个未知订单，当真确认支付成功？', function(index__) {
+                  layer.prompt({
+                    formType: 1,
+                    title: '请输入确认密码',
+                  }, function(value, index, elem) {
+
+                    layui.$.ajax({
+                      url: '/auditOrder',
+                      type: 'POST',
+                      data: {
+                        id: data['id'],
+                        NOW_CONFIRM_PASSWORD: value,
+                        state: "确认收款"
+                      },
+                      dataType: 'json',
+                      timeout: 1000,
+                      cache: false,
+                      error: function() {
+                        layer.msg("服务器没有响应，请稍后再试！", {
+                          icon: 2,
+                          time: 4000 //2秒关闭（如果不配置，默认是3秒）
+                        })
+                      }, //错误执行方法
+                      success: function(data) {
+                        if (data["code"] == 200) {
+                          layer.msg("操作成功！", {
+                            icon: 1,
+                            time: 4000, //2秒关闭（如果不配置，默认是3秒）
+                          });
+                          obj.update({
+                            state: "确认收款",
+                          });
+                        } else {
+                          layer.msg(data["message"], {
+                            icon: 2,
+                            time: 4000 //2秒关闭（如果不配置，默认是3秒）
+                          });
+                        }
+                        layer.close(index);
+                      }
+                    })
+                  });
+                  layer.close(index__);
+                })
+                return;
+              }
+              layer.close(index);
+              layer.prompt({
+                formType: 1,
+                title: '请输入确认密码',
+              }, function(value, index, elem) {
+
+                layui.$.ajax({
+                  url: '/auditOrder',
+                  type: 'POST',
+                  data: {
+                    id: data['id'],
+                    NOW_CONFIRM_PASSWORD: value,
+                    state: "确认收款"
+                  },
+                  dataType: 'json',
+                  timeout: 1000,
+                  cache: false,
+                  error: function() {
+                    layer.msg("服务器没有响应，请稍后再试！", {
+                      icon: 2,
+                      time: 4000 //2秒关闭（如果不配置，默认是3秒）
+                    })
+                  }, //错误执行方法
+                  success: function(data) {
+                    if (data["code"] == 200) {
+                      layer.msg("操作成功！", {
+                        icon: 1,
+                        time: 4000, //2秒关闭（如果不配置，默认是3秒）
+                      });
+                      obj.update({
+                        state: "确认收款",
+                      });
+                    } else {
+                      layer.msg(data["message"], {
+                        icon: 2,
+                        time: 4000 //2秒关闭（如果不配置，默认是3秒）
+                      });
+                    }
+                    layer.close(index);
+                  }
+                });
+
+              });
+            });
+            break;
+          case 'callback':
+            layui.$.ajax({
+              url: '/callbackOrder',
+              type: 'POST',
+              data: {
+                id: data['id'],
+              },
+              dataType: 'json',
+              timeout: 1000,
+              cache: false,
+              error: function() {
+                layer.msg("服务器没有响应，请稍后再试！", {
+                  icon: 2,
+                  time: 4000 //2秒关闭（如果不配置，默认是3秒）
+                })
+              }, //错误执行方法
+              success: function(data) {
+                if (data["code"] == 403) {
+                  layer.msg(data['message']);
+                } else {
+                  layer.msg(data['message']);
+                  obj.update({
+                    callback_result: data['message'],
+                  });
+                }
+              }
+            })
+            break;
+        }
+      });
+
+      table.on('edit(account)', function(obj) { //注：edit是固定事件名，test是table原始容器的属性 lay-filter="对应的值"
+        layer.prompt({
+          formType: 1,
+          title: '请输入确认密码',
+        }, function(value, index, elem) {
+          layer.close(index);
+          var data = {
+            method: '__PUT__',
+            id: obj.data['id'],
+            NOW_CONFIRM_PASSWORD: value,
+          };
+          data[obj.field] = obj.value;
+          layui.$.ajax({
+            url: '/accounts',
+            type: 'POST',
+            data: data,
+            dataType: 'json',
+            timeout: 1000,
+            cache: false,
+            error: function() {
+              layer.msg("服务器没有响应，请稍后再试！", {
+                icon: 2,
+                time: 4000 //2秒关闭（如果不配置，默认是3秒）
+              })
+            }, //错误执行方法
+            success: function(data) {
+              if (data["code"] == 200) {
+                layer.msg("操作成功！", {
+                  icon: 1,
+                  time: 4000 //2秒关闭（如果不配置，默认是3秒）
+                });
+              } else {
+                layer.msg(data["message"], {
+                  icon: 2,
+                  time: 4000 //2秒关闭（如果不配置，默认是3秒）
+                });
+                table.reload('account');
+              }
+            }
+          });
+        })
+      });
+
+    });
+
+    function syntaxHighlight(json) {
+      json = eval('(' + json + ')');
+      if (json['code'] != 200) {
+        layer.msg("服务器没有响应，请稍后再试！", {
+          icon: 2,
+          time: 4000
+        })
+      }
+      json = JSON.stringify(json['data']);
+      json = json.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>');
+      return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function(match) {
+        var cls = 'number';
+        if (/^"/.test(match)) {
+          if (/:$/.test(match)) {
+            cls = 'key';
+          } else {
+            cls = 'string';
+          }
+        } else if (/true|false/.test(match)) {
+          cls = 'boolean';
+        } else if (/null/.test(match)) {
+          cls = 'null';
+        }
+        return '<span class="' + cls + '">' + match + '</span>';
+      });
+    }
+
+    function fetchConfigs() {
+      layer.prompt({
+        formType: 1,
+        title: '请输入确认密码',
+      }, function(value, index, elem) {
+        layer.close(index);
+        layui.$.ajax({
+          url: '/getConfigs',
+          type: 'POST',
+          dataType: 'json',
+          timeout: 1000,
+          cache: false,
+          data: {
+            NOW_CONFIRM_PASSWORD: value
+          },
+          error: function() {
+            layer.msg("服务器没有响应，请稍后再试！", {
+              icon: 2,
+              time: 4000 //2秒关闭（如果不配置，默认是3秒）
+            })
+          }, //错误执行方法
+          success: function(data) {
+            if (data["code"] == 200) {
+              data['data']['SERVER_OPEN'] = data['data']['SERVER_OPEN'] == "开启" ? "开启" : "";
+              data['data']['AUTO_CALLBACK'] = data['data']['AUTO_CALLBACK'] == "开启" ? "开启" : "";
+              layui.form.val("configs", data["data"])
+            } else {
+              layer.msg(data["message"], {
+                icon: 2,
+                time: 4000 //2秒关闭（如果不配置，默认是3秒）
+              });
+            }
+          }
+        });
+      });
+    }
+
+    function uploadConfigs(data) {
+      layui.$.ajax({
+        url: '{{ CONFIGS_URL }}',
+        type: 'POST',
+        dataType: 'json',
+        timeout: 1000,
+        data: data,
+        cache: false,
+        error: function() {
+          layer.msg("服务器没有响应，请稍后再试！", {
+            icon: 2,
+            time: 4000
+          })
+        },
+        success: function(data) {
+          if (data['code'] == 200) {
+            layer.msg("操作成功！", {
+              icon: 1,
+              time: 4000
+            });
+          } else if (data['code'] == 400) {
+            layer.msg("操作失败！", {
+              icon: 2,
+              time: 4000
+            });
+          } else {
+            layer.msg(data['message'], {
+              icon: 0,
+              time: 4000
+            });
+          }
+        }
+      });
+    }
+
+    layui.use('form', function() {
+      var form = layui.form;
+
+      form.on('submit(*)', function(data) {
+        data.field['SERVER_OPEN'] = data.field['SERVER_OPEN'] ? "开启" : "关闭";
+        data.field['AUTO_CALLBACK'] = data.field['AUTO_CALLBACK'] ? "开启" : "关闭";
+
+        if ({
+            {
+              SETTING_MODO
+            }
+          }) {
+          uploadConfigs(data.field);
+          setTimeout(function() {
+            window.location.reload();
+          }, 5000)
+        } else {
+          layer.prompt({
+            formType: 1,
+            title: '请输入确认密码',
+          }, function(value, index, elem) {
+            layer.close(index);
+            data.field['NOW_CONFIRM_PASSWORD'] = value;
+            uploadConfigs(data.field)
+          });
+        }
+
+        return false;
+      });
+    });
+
+    layui.use('form', function() {
+      var Do = layui.form;
+      Do.on('submit(forDo)', function(data) {
+        layer.prompt({
+          formType: 1,
+          title: '请输入确认密码',
+        }, function(value, index, elem) {
+          layer.close(index);
+          layui.$.ajax({
+            url: '/' + data.field['do'],
+            type: 'POST',
+            dataType: 'json',
+            timeout: 1000,
+            data: {
+              NOW_CONFIRM_PASSWORD: value
+            },
+            cache: false,
+            error: function() {
+              layer.msg("服务器没有响应，请稍后再试！", {
+                icon: 2,
+                time: 4000
+              })
+            },
+            success: function(data) {
+              if (data['code'] == 200) {
+                layer.msg("操作成功！", {
+                  icon: 1,
+                  time: 4000
+                });
+                window.location.reload();
+              } else if (data['code'] == 400) {
+                layer.msg("操作失败！", {
+                  icon: 2,
+                  time: 4000
+                });
+              } else {
+                layer.msg(data['message'], {
+                  icon: 0,
+                  time: 4000
+                });
+              }
+            }
+          });
+        });
+        return false;
+      });
+    });
+  </script>
+</body>
+
+</html>

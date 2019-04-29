@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <form action="/" method="post">
+    <br>跳转地址：<input type="text" value="http://benefitpick.com" name="pickupUrl">
+    <br>回调地址：<input type="text" value="http://www.huke.com" name="receiveUrl">
+    <br>签名类型：<input type="text" value="Md5" name="signType">
+    <br>订单编号：<input type="text" value="{{orderNo}}" name="orderNo">
+    <br>订单金额：<input type="text" value="100.00" name="orderAmount">
+    <br>货币类型：<input type="text" value="CNY" name="orderCurrency">
+    <br>用户id：<input type="text" value="10049" name="customerId">
+    <input type="hidden" value="12345678910" name="sign">
+    <br><input type="submit" />
+  </form>
+</body>
+
+</html>
